@@ -1,0 +1,15 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore output and output files
+*crawled.txt
+*output.txt
+
+# Ignore compiled files
+*.class
+*.o
+*.out
+
+# Ignore system files
+.DS_Store
+Thumbs.db
