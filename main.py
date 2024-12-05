@@ -21,7 +21,7 @@ def extract_main_domain(url):
 def starter(url):
     project_name = extract_main_domain(url)
     domain_name = get_domain_name(url)
-    QUEUE_FILE = project_name + '/queue.txt'
+    QUEUE_FILE = project_name + '/output.txt'
     CRAWLED_FILE = project_name + '/crawled.txt'
     task_queue = Queue()
     spider_crawler = Spider(project_name, url, domain_name)
@@ -31,8 +31,8 @@ def crawl_webpages(urls,threads_count=None):
         results = executor.map(starter, urls)
     return list(results)
 
+#web pages should be added in the format https://www.example.com
+urls = ['https://www.google.com/', 'https://www.arthtechglobal.com/' , 'http://www.amazon.in']
 
-urls = ['https://www.google.com/', 'https://www.arthtechglobal.com/']
-
-THREAD_COUNT = 2
+THREAD_COUNT = 10
 crawl_webpages(urls,THREAD_COUNT)
